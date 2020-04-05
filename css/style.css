@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 60px repeat(auto-fit, minmax(auto, 1fr));
+    grid-template-areas:
+        "header"
+        "navbar"
+        "main";
+}
+
+.header {
+    grid-area: header;
+
+}
+
+.navbar {
+    grid-area: navbar;
+}
+
+.main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fit, minmax(auto, 1fr));
+    grid-template-areas:
+        "main-header"
+        "alert"
+        "chartTraffic"
+        "chartDailyTraffic"
+        "chartMobileUsers"
+        "socials"
+        "newMembers"
+        "recentActivity"
+        "form"
+        "settings";
+}
+
+.main-header {
+    grid-area: main-header;
+}
+
+.alert {
+    grid-area: alert;
+}
+
+.chartTraffic {
+    grid-area: chartTraffic;
+}
+
+.chartDailyTraffic {
+    grid-area: chartDailyTraffic;
+}
+
+.chartMobileUsers {
+    grid-area: chartMobileUsers;
+}
+
+.socials {
+    grid-area: social-container;
+}
+
+.newMembers {
+    grid-area: newMembers;
+}
+
+.recentActivity {
+    grid-area: recentActivity;
+}
+
+.form {
+    grid-area: form;
+}
+
+.settings {
+    grid-area: settings;
+}
