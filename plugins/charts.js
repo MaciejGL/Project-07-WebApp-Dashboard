@@ -2,26 +2,10 @@ const trafficCanvas = document.getElementById("traffic-chart");
 const dailyCanvas = document.getElementById('daily-chart');
 const mobileCanvas = document.getElementById('mobile-chart')
 
-const user = document.getElementById('userField');
-const message = document.getElementById('messageField');
-const send = document.getElementById('send');
 
 
 Chart.defaults.global.defaultFontSize = 12
-// FORM
 
-
-send.addEventListener('click', () => {
-    if (!user.value && !message.value) {
-        alert('Please fill out user and message fields before sending')
-    } else if (!user.value) {
-        alert('Please fill out user field before sending')
-    } else if (!message.value) {
-        alert('Please fill out message field before sending')
-    } else {
-        alert(`Message successfully send to: ${user.value}`)
-    }
-});
 
 // DATA FOR TRAFFIC CHART
 

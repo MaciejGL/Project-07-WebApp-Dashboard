@@ -16,3 +16,27 @@ alertBanner.addEventListener('click', (e) => {
         alertBanner.style.display = "none"
     }
 })
+
+
+
+
+const user = document.getElementById('userField');
+const message = document.getElementById('messageField');
+const send = document.getElementById('send');
+// FORM
+
+
+send.addEventListener('click', (e) => {
+    e.preventDefault()
+    if (!user.value && !message.value) {
+        alert('Please fill out user and message fields before sending')
+    } else if (!user.value) {
+        alert('Please fill out user field before sending')
+    } else if (!message.value) {
+        alert('Please fill out message field before sending')
+    } else {
+        alert(`Message successfully send to: ${user.value}`)
+        message.value = "";
+        user.value = ""
+    }
+});
