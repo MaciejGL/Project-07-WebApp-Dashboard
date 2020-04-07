@@ -6,7 +6,10 @@ const user = document.getElementById('userField');
 const message = document.getElementById('messageField');
 const send = document.getElementById('send');
 
+
+Chart.defaults.global.defaultFontSize = 12
 // FORM
+
 
 send.addEventListener('click', () => {
     if (!user.value && !message.value) {
@@ -23,7 +26,7 @@ send.addEventListener('click', () => {
 // DATA FOR TRAFFIC CHART
 
 
-let trafficData = {
+let trafficDataWeekly = {
     labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
     datasets: [{
         data: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500],
@@ -37,20 +40,15 @@ let trafficData = {
         pointBorderColor: 'rgba(116, 119, 191, 1)',
         pointRadius: 4,
     }]
+}
 
-};
+
 
 let trafficOptions = {
-    aspectRatio: 2.5,
+    aspectRatio: 3,
     animation: {
         duration: 0
     },
-    // plugins: {
-    //     datalabels: {
-    //         clamp: true
-    //     }
-    // },
-
     legend: {
         display: false
     },
@@ -60,21 +58,32 @@ let trafficOptions = {
             ticks: {
                 beginAtZero: true,
                 stepSize: 500,
+                fontSize: 10,
+                padding: 10,
             },
+            gridLines: {
+                tickMarkLength: 0
+            }
         }],
         xAxes: [{
             ticks: {
-                // lineHeight: 2
+                padding: 15,
+                autoSkip: true,
+                beginAtZero: true,
             },
+            gridLines: {
+                tickMarkLength: 0
+            }
         }],
+
     }
 };
 
 
 //  TRAFFIC CHART
-const trafficChart = new Chart(trafficCanvas, {
+let trafficChart = new Chart(trafficCanvas, {
     type: 'line',
-    data: trafficData,
+    data: trafficDataWeekly,
     options: trafficOptions,
 });
 
@@ -141,4 +150,4 @@ const mobileChart = new Chart(mobileCanvas, {
     type: 'doughnut',
     data: mobileData,
     options: mobileOptions
-})
+});

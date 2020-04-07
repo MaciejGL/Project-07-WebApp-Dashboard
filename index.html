@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebApp Dashboard</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/toggle-switch.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
@@ -17,12 +18,15 @@
 
 
     <header class="header">
-        <h2>Your<span>App</span><span class="trademark">&trade;</span></h2>
-        <img src="icons/icon-bell.svg" alt="Bell Icon">
-        <div id="notification"></div>
-        <div class="user">
-            <img src="images/member-5.jpg" alt="Profile picture">
-            <h3 class="name">Josh Sullivan</h3>
+
+        <h2>Your<span>App&trade;</span></h2>
+        <div class="wrapperHeader">
+            <div id="notification"> <img src="icons/icon-bell.svg" alt="Bell Icon"></div>
+
+            <div class="user">
+                <img src="images/member-5.jpg" alt="Profile picture">
+                <h3 class="name">Josh Sullivan</h3>
+            </div>
         </div>
     </header>
 
@@ -46,15 +50,19 @@
     <main class="main">
         <section class="main-header">
             <h2 class="title">Dashboard</h2>
-            <input type="search" class="search" placeholder="Search...">
+            <div class="searchWrapper">
+                <input type="search" class="search" placeholder="Search...">
+            </div>
             <!-- Alert -->
-
             <div class="alert" id="alert">
                 <!-- JS content -->
             </div>
+
         </section>
 
-
+        <div class="alert" id="alert">
+            <!-- JS content -->
+        </div>
 
 
         <!--------------- LINE CHART --------------->
@@ -63,11 +71,11 @@
         <section class="chartTraffic">
             <div class="traffic-header">
                 <h3>Traffic</h3>
-                <ul>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
+                <ul id="chartDataDisplay">
+                    <li>Hourly</li>
+                    <li>Daily</li>
+                    <li class="active">Weekly</li>
+                    <li>Monthly</li>
                 </ul>
             </div>
             <div class="widget-container-full">
@@ -171,8 +179,8 @@
         <!--------------- New Members --------------->
 
 
-        <section class="newMembers">
-            <h3 class="title">New Members</h3>
+        <section class="newMembers members">
+            <h3>New Members</h3>
 
             <ul>
                 <li><img src="images/member-1.jpg" alt="Victoria Chambers">
@@ -210,9 +218,9 @@
         <!--------------- Recent Activity --------------->
 
 
-        <section class="recentActivity">
+        <section class="recentActivity members">
 
-            <h3 class="title">Recent Activity</h3>
+            <h3>Recent Activity</h3>
 
             <ul>
                 <li><img src="images/member-1.jpg" alt="Victoria Chambers">
@@ -256,7 +264,7 @@
 
             <h3>Message User</h3>
 
-            <form class="widget-container">
+            <form class="form-container">
                 <input type="text" placeholder="Search for User" class="form-field" id="userField">
                 <textarea placeholder="Message for User" class="form-area" id="messageField"></textarea>
                 <button class="button-primary" id="send">Send</button>
@@ -273,45 +281,45 @@
             <h3>Settings</h3>
 
             <!--------------- SWITCHERS --------------->
-
-            <div class="switch">
-                <p>Send Email Notification</p><label class="switch-light switch-ios" onclick="">
-                    <input type="checkbox">
-                    <span>
+            <div class="wrapperSettings">
+                <div class="switch">
+                    <p>Send Email Notification</p><label class="switch-light switch-ios" onclick="">
+                        <input type="checkbox">
+                        <span>
       <span>Off</span>
-                    <span>On</span>
-                    <a></a>
-                    </span>
-                </label>
-            </div>
+                        <span>On</span>
+                        <a></a>
+                        </span>
+                    </label>
+                </div>
 
-            <div class="switch">
-                <p>Set Profile to public</p><label class="switch-light switch-ios" onclick="">
-                    <input type="checkbox">
-                    <span>
+                <div class="switch">
+                    <p>Set Profile to public</p><label class="switch-light switch-ios" onclick="">
+                        <input type="checkbox">
+                        <span>
           <span>Off</span>
-                    <span>On</span>
-                    <a></a>
-                    </span>
-                </label>
+                        <span>On</span>
+                        <a></a>
+                        </span>
+                    </label>
+                </div>
+
+                <select class="form-field" id="timezone">
+                    <option disabled selected>Select a Timezone</option>
+                    <option>Greenwich Mean Time GMT</option>
+                    <option>European Central Time GMT+1:00</option>
+                    <option>Eastern European Time GMT+2:00</option>
+                    <option> Middle East Time GMT+3:30</option>
+                    <option>Hawaii Standard Time GMT-10:00</option>
+                    <option>Central Standard Time GMT-6:00</option>
+                    <option>Puerto Rico and US Virgin Islands Time GMT-4:00</option>
+                </select>
+
+                <div class="settings-btn">
+                    <button class="button-primary" id="save">Save</button><button class="button-primary button-disabled"
+                        id="cancel">Cancel</button>
+                </div>
             </div>
-
-            <select class="form-field" id="timezone">
-                <option disabled selected>Select a Timezone</option>
-                <option>Greenwich Mean Time GMT</option>
-                <option>European Central Time GMT+1:00</option>
-                <option>Eastern European Time GMT+2:00</option>
-                <option> Middle East Time GMT+3:30</option>
-                <option>Hawaii Standard Time GMT-10:00</option>
-                <option>Central Standard Time GMT-6:00</option>
-                <option>Puerto Rico and US Virgin Islands Time GMT-4:00</option>
-            </select>
-
-            <div class="settings-btn">
-                <button class="button-primary" id="save">Save</button><button class="button-disabled"
-                    id="cancel">Cancel</button>
-            </div>
-
         </section>
 
     </main>
