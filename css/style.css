@@ -54,7 +54,7 @@ p {
 
 .header h2 {
     font-size: 1em;
-    margin: 0;
+    margin: 15px 0;
 }
 
 .header span {
@@ -75,12 +75,12 @@ p {
     justify-content: center;
     align-items: center;
     position: relative;
-    height: 60%;
+    height: 20px;
 
 }
 
 #notification img {
-    height: 80%;
+    height: 100%;
     /* padding-right: 15px; */
     transform-origin: 50% 4px;
 }
@@ -190,8 +190,8 @@ p {
 #notification::after {
     content: '';
     position: absolute;
-    top: 0;
-    right: -7px;
+    top: -3px;
+    right: 0;
     height: 6px;
     width: 6px;
     background-color: rgb(0, 255, 0);
@@ -638,6 +638,65 @@ select {
 }
 
 
+/* MODAL */
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.modal-content h1 {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 @media (min-width: 768px) {
     .widget-container-full {
         width: 90vw;
@@ -707,6 +766,8 @@ select {
             "form settings";
     }
 
+
+
     /* MAIN HEADER */
 
     .search {
@@ -745,7 +806,9 @@ select {
         border-right: 1px solid rgba(0, 0, 0, 0.2);
     }
 
-
+    .modal-content {
+        width: 50%;
+    }
 
 
 }
@@ -768,5 +831,9 @@ select {
 
     .social-text p:nth-child(2) {
         font-size: 3em;
+    }
+
+    .modal-content {
+        width: 30%;
     }
 }
