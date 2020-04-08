@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    scroll-behavior: smooth;
+}
+
 input,
 textarea,
 select {
@@ -83,10 +87,11 @@ p {
     height: 100%;
     /* padding-right: 15px; */
     transform-origin: 50% 4px;
+    cursor: pointer;
 }
 
 #notification img:hover {
-    animation: ring 4s .7s ease-in-out infinite;
+    animation: ring 4s ease-in-out infinite;
 }
 
 @keyframes ring {
@@ -335,6 +340,7 @@ p {
     margin: 0;
     font-size: 1.5em;
     font-weight: 700;
+    cursor: pointer;
 }
 
 /* --------------------------------------------------------------------- */
@@ -364,7 +370,9 @@ p {
 .traffic-header li {
     font-weight: 700;
     padding: 3px 10px;
-    font-size: 0.5em;
+    font-size: 0.6em;
+    transition: 0.3s;
+    cursor: pointer;
 }
 
 .traffic-header li.active {
@@ -783,6 +791,10 @@ select {
         border-left: 1px solid rgba(0, 0, 0, 0.2);
     }
 
+    .traffic-header li {
+        font-size: 0.8em;
+    }
+
     /* SOCIAL */
     .socialContainer {
         width: 32%;
@@ -836,4 +848,11 @@ select {
     .modal-content {
         width: 30%;
     }
+}
+
+
+
+.switch-ios.switch-light input:checked~span a,
+.switch-ios.switch-light input~span a {
+    outline: none;
 }
