@@ -6,6 +6,10 @@
     scroll-behavior: smooth;
 }
 
+button {
+    cursor: pointer;
+}
+
 input,
 textarea,
 select {
@@ -33,7 +37,7 @@ p {
 .grid-container {
     display: grid;
     grid-template-columns: minmax(320px, 1fr);
-    grid-template-rows: auto;
+    grid-template-rows: repeat(auto-fit, 1fr);
     grid-template-areas:
         "header"
         "navbar"
@@ -381,6 +385,7 @@ p {
     border-radius: 10px;
 }
 
+
 /* --------------------------------------------------------------------- */
 /* ----------------------- CHART DAILY -------------------------------- */
 /* --------------------------------------------------------------------- */
@@ -541,7 +546,7 @@ svg path {
 
 .form {
     grid-area: form;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .form-container {
@@ -579,12 +584,14 @@ svg path {
 /* --------------------------------------------------------------------- */
 .settings {
     grid-area: settings;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .wrapperSettings {
     width: 90%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .switch {
@@ -627,12 +634,26 @@ select {
     justify-content: space-between;
 }
 
-.settings-btn .button-primary {
+.settings-btn button {
     width: 49%;
+    margin-bottom: 0;
 }
 
 .button-disabled {
-    background-color: #bbb;
+    margin: 10px 0;
+    padding: 10px 0;
+    width: 49%;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    color: white;
+    background-color: rgba(116, 119, 191, 1);
+    border: none;
+    border-radius: 5px;
+}
+
+.button-disabled:disabled {
+    background-color: #ddd;
+    cursor: initial;
 }
 
 
@@ -704,6 +725,65 @@ select {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* Autocomplete */
+
+/*the container must be positioned relative:*/
+.autocomplete {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+input {
+    border: 1px solid transparent;
+    padding: 10px;
+    font-size: 12px;
+}
+
+input[type=text] {
+    width: 100%;
+}
+
+input[type=submit] {
+    background-color: DodgerBlue;
+    color: #fff;
+    cursor: pointer;
+}
+
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+    background-color: #e9e9e9;
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+}
+
+
+
 
 @media (min-width: 768px) {
     .widget-container-full {
@@ -822,6 +902,10 @@ select {
         width: 50%;
     }
 
+    .form {
+        overflow: hidden;
+    }
+
 
 }
 
@@ -855,4 +939,9 @@ select {
 .switch-ios.switch-light input:checked~span a,
 .switch-ios.switch-light input~span a {
     outline: none;
+}
+
+.fb-page {
+    border: none;
+    background-color: transparent;
 }

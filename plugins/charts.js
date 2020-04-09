@@ -80,7 +80,7 @@ let trafficDataMonthly = {
 let trafficOptions = {
     aspectRatio: 3,
     animation: {
-        duration: 0
+        duration: 500
     },
     legend: {
         display: false

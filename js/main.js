@@ -67,3 +67,96 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
+
+
+
+
+// LocalStorage SETTINGS SECTION
+
+
+
+const sectionSettings = document.querySelector('#settings')
+const onOffEmail = document.querySelector('#email');
+const onOffPublic = document.querySelector('#public');
+const selectTimezone = document.querySelector('#timezone');
+const save = document.querySelector('#save');
+const cancel = document.querySelector('#cancel');
+
+let emailNotification = localStorage.getItem('emailNotification')
+let publicProfile = localStorage.getItem('publicProfile')
+let timeZone = localStorage.getItem('timeZone')
+
+
+
+
+const cancelSetting = () => {
+    // emailNotification.addEventListener('change', ())
+}
+
+
+
+
+
+const getSwitcherData = (localData, switcher) => {
+    if (localData == 'true') {
+        switcher.checked = true
+    } else {
+        switcher.checked = false
+    }
+}
+
+const getSelectData = (localData, select) => {
+    if (localData) {
+        select.value = timeZone
+    }
+}
+
+window.addEventListener('load', () => {
+    getSwitcherData(emailNotification, onOffEmail);
+    getSwitcherData(publicProfile, onOffPublic);
+    getSelectData(timeZone, selectTimezone);
+})
+
+
+const setSettings = () => {
+    if (onOffEmail.checked) {
+        emailNotification = true
+    }
+    if (!onOffEmail.checked) {
+        emailNotification = false
+    }
+    if (onOffPublic.checked) {
+        publicProfile = true
+    }
+    if (!onOffPublic.checked) {
+        publicProfile = false;
+    };
+    if (selectTimezone) {
+        timeZone = selectTimezone.value
+    }
+
+    if (publicProfile.toString() !== localStorage.getItem('publicProfile') || emailNotification.toString() !== localStorage.getItem('emailNotification') || timeZone.toString() !== localStorage.getItem('timeZone')) {
+        cancel.disabled = false
+    } else {
+        cancel.disabled = true
+    }
+
+}
+
+
+sectionSettings.addEventListener('click', setSettings)
+
+save.addEventListener('click', () => {
+    localStorage.setItem('emailNotification', emailNotification)
+    localStorage.setItem('publicProfile', publicProfile)
+    localStorage.setItem('timeZone', timeZone)
+})
+
+cancel.addEventListener('click', () => {
+    emailNotification = localStorage.getItem('emailNotification')
+    publicProfile = localStorage.getItem('publicProfile')
+    timeZone = localStorage.getItem('timeZone')
+    getSwitcherData(emailNotification, onOffEmail);
+    getSwitcherData(publicProfile, onOffPublic);
+    getSelectData(timeZone, selectTimezone);
+})

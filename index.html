@@ -95,7 +95,7 @@
                 </ul>
             </div>
             <div class="widget-container-full">
-                <canvas id="traffic-chart"></canvas>
+                <canvas id="traffic-chart" class="traffic-canvas"></canvas>
             </div>
 
         </section>
@@ -159,6 +159,8 @@
                     <p>8,739</p>
                 </div>
             </div>
+            </div>
+            </div>
 
             <!--------------- Google+ SVG --------------->
 
@@ -201,28 +203,28 @@
             <ul>
                 <li><img src="images/member-1.jpg" alt="Victoria Chambers">
                     <div class="member-text">
-                        <p>Victoria Chambers</p><a href='#'>victoria.chambers80@example.com</a>
+                        <p class="memberName">Victoria Chambers</p><a href='#'>victoria.chambers80@example.com</a>
                     </div>
                     <p>10/15/15</p>
                 </li>
 
                 <li><img src="images/member-2.jpg" alt="Dale Byrd">
                     <div class="member-text">
-                        <p>Dale Byrd</p><a href='#'>dale.byrd52@example.com</a>
+                        <p class="memberName">Dale Byrd</p><a href='#'>dale.byrd52@example.com</a>
                     </div>
                     <p>10/15/15</p>
                 </li>
 
                 <li><img src="images/member-3.jpg" alt="">
                     <div class="member-text">
-                        <p>Dawn Wood</p><a href='#'>dawn.wood16@example.com</a>
+                        <p class="memberName">Dawn Wood</p><a href='#'>dawn.wood16@example.com</a>
                     </div>
                     <p>10/15/15</p>
                 </li>
 
                 <li><img src="images/member-4.jpg" alt="">
                     <div class="member-text">
-                        <p>Dan Oliver</p><a href='#'>dan.oliver82@example.com</a>
+                        <p class="memberName">Dan Oliver</p><a href='#'>dan.oliver82@example.com</a>
                     </div>
                     <p>10/15/15</p>
                 </li>
@@ -279,9 +281,10 @@
         <section class="form">
 
             <h3>Message User</h3>
-
-            <form class="form-container">
-                <input type="text" placeholder="Search for User" class="form-field" id="userField">
+            <form autocomplete="off" class="form-container">
+                <div class="autocomplete">
+                    <input type="text" placeholder="Search for User" class="form-field" id="userField">
+                </div>
                 <textarea placeholder="Message for User" class="form-area" id="messageField"></textarea>
                 <button class="button-primary" id="send">Send</button>
             </form>
@@ -300,7 +303,7 @@
             <div class="wrapperSettings">
                 <div class="switch">
                     <p>Send Email Notification</p><label class="switch-light switch-ios" onclick="">
-                        <input type="checkbox">
+                        <input id="email" type="checkbox">
                         <span>
       <span>Off</span>
                         <span>On</span>
@@ -311,7 +314,7 @@
 
                 <div class="switch">
                     <p>Set Profile to public</p><label class="switch-light switch-ios" onclick="">
-                        <input type="checkbox">
+                        <input id="public" type="checkbox">
                         <span>
           <span>Off</span>
                         <span>On</span>
@@ -332,17 +335,18 @@
                 </select>
 
                 <div class="settings-btn">
-                    <button class="button-primary" id="save">Save</button><button class="button-primary button-disabled"
-                        id="cancel">Cancel</button>
+                    <button class="button-primary" id="save">Save</button><button class="button-disabled" id="cancel"
+                        disabled>Cancel</button>
                 </div>
             </div>
         </section>
 
     </main>
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="plugins/charts.js"></script>
+    <script src="plugins/search.js"></script>
     <script src="js/main.js"></script>
+
 </body>
 
 </html>
