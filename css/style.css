@@ -584,6 +584,9 @@ svg path {
 /* --------------------------------------------------------------------- */
 .settings {
     grid-area: settings;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .wrapperSettings {
@@ -632,6 +635,7 @@ select {
 .settings-btn {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 15px;
 }
 
 .settings-btn button {
